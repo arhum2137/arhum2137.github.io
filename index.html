@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥 WYGRAŁEŚ! Gorące Kebaby w Twojej Okolicy! 🔥</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(45deg, #ff6b35, #f7931e, #fdc500, #ff6b35);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            background: #fff;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .firework {
+            position: fixed;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .blink {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50%, 100% { opacity: 1; }
+            25%, 75% { opacity: 0; }
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(90deg, #ff0000, #ff6b00, #ffff00, #00ff00, #0000ff, #ff00ff);
+            background-size: 200% 200%;
+            animation: rainbow 3s linear infinite;
+            padding: 30px;
+            border: 10px solid #ffd700;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.8), inset 0 0 20px rgba(255, 255, 255, 0.3);
+            transform: rotate(-1deg);
+        }
+
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        h1 {
+            font-size: 4em;
+            text-shadow: 4px 4px 0 #000, 6px 6px 0 #ff0000, 8px 8px 0 #ffff00;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            transform: rotate(1deg);
+        }
+
+        .subtitle {
+            font-size: 2.5em;
+            color: #ff0000;
+            background: #ffff00;
+            padding: 15px;
+            display: inline-block;
+            border: 5px dashed #ff0000;
+            text-shadow: 2px 2px 0 #000;
+            animation: pulse 1.5s infinite;
+            margin: 20px 0;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .magic-carpet {
+            position: fixed;
+            width: 150px;
+            animation: fly 20s linear infinite;
+            z-index: 5;
+        }
+
+        @keyframes fly {
+            0% { left: -200px; top: 10%; transform: rotate(5deg); }
+            50% { left: 110%; top: 60%; transform: rotate(-5deg); }
+            100% { left: -200px; top: 10%; transform: rotate(5deg); }
+        }
+
+        .content-box {
+            background: linear-gradient(135deg, #c41e3a, #8b0000);
+            border: 8px solid #ffd700;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+            position: relative;
+        }
+
+        .content-box::before {
+            content: '★';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3em;
+            color: #ffd700;
+            animation: spin 4s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: translateX(-50%) rotate(0deg); }
+            to { transform: translateX(-50%) rotate(360deg); }
+        }
+
+        .details {
+            font-size: 1.3em;
+            line-height: 2;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 25px;
+            border-radius: 10px;
+            border: 3px solid #ffd700;
+        }
+
+        .details strong {
+            color: #ffd700;
+            font-size: 1.2em;
+            text-shadow: 2px 2px 0 #000;
+        }
+
+        .ascii-art {
+            font-family: monospace;
+            white-space: pre;
+            font-size: 0.8em;
+            text-align: center;
+            color: #ffd700;
+            text-shadow: 2px 2px 0 #000;
+            margin: 30px 0;
+            line-height: 1.2;
+        }
+
+        .photo-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .photo-main {
+            width: 400px;
+            height: 400px;
+            border: 10px solid #ffd700;
+            border-radius: 15px;
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            color: #ffd700;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo-main::after {
+            content: '📸';
+            position: absolute;
+            font-size: 4em;
+            opacity: 0.3;
+        }
+
+        .michelin-corner {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 150px;
+            height: 150px;
+            border: 5px solid #ffd700;
+            border-radius: 15px;
+            background: #8b0000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            color: #ffd700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+            transform: rotate(5deg);
+            z-index: 100;
+        }
+
+        .michelin-corner::after {
+            content: '⭐';
+            position: absolute;
+            font-size: 3em;
+            opacity: 0.3;
+        }
+
+        marquee {
+            background: #000;
+            color: #ff0000;
+            font-size: 1.8em;
+            font-weight: bold;
+            padding: 15px;
+            border: 5px solid #ffd700;
+            margin: 20px 0;
+        }
+
+        .flame {
+            display: inline-block;
+            animation: flicker 1s infinite;
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .location {
+            background: linear-gradient(45deg, #00ff00, #00aa00);
+            padding: 20px;
+            border-radius: 10px;
+            border: 5px solid #ffd700;
+            text-align: center;
+            font-size: 1.5em;
+            margin: 20px 0;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2em; }
+            .subtitle { font-size: 1.5em; }
+            .photo-main { width: 300px; height: 300px; }
+            .michelin-corner { width: 100px; height: 100px; top: 10px; right: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <img class="magic-carpet" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'%3E%3Crect fill='%23800080' width='200' height='80'/%3E%3Cpath d='M0 80 Q50 70 100 80 T200 80' fill='%23ffd700'/%3E%3Ccircle cx='50' cy='40' r='15' fill='%23ff0000'/%3E%3Ccircle cx='100' cy='40' r='15' fill='%2300ff00'/%3E%3Ccircle cx='150' cy='40' r='15' fill='%230000ff'/%3E%3C/svg%3E" alt="Latający dywan">
+
+    <div class="michelin-corner">
+        <div style="position: relative; z-index: 1; text-align: center;">
+            <div>Michelin ⭐</div>
+            <div style="font-size: 0.7em;">[Twoje zdjęcie]</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="header blink">
+            <h1>🔥 WYGRAŁEŚ! 🔥</h1>
+            <div class="subtitle">
+                <span class="flame">🔥</span> 
+                GORĄCE KEBABY W TWOJEJ OKOLICY! 
+                <span class="flame">🔥</span>
+            </div>
+        </div>
+
+        <marquee behavior="scroll" direction="left" scrollamount="10">
+            ★★★ KLIKNIJ TUTAJ ABY ODEBRAĆ NAGRODĘ ★★★ NIE CZEKAJ! OFERTA OGRANICZONA! ★★★ GORĄCE KEBABY CZEKAJĄ! ★★★
+        </marquee>
+
+        <div class="ascii-art">
+      ___________________________
+     /                           \
+    |  .--.  .--.  .--.  .--.    |
+    | ( () )( () )( () )( () )   |
+    |  '--'  '--'  '--'  '--'    |
+    |    ARHUM KEBAB 🌙          |
+    |  ___________________       |
+    | |  OTWARTE 24/7     |      |
+    | |___________________|      |
+    |          | |               |
+     \_________| |______________/
+              | |
+              | |
+            __| |__
+        </div>
+
+        <div class="photo-container">
+            <div class="photo-main">
+                [Wstaw tutaj zdjęcie 1]
+            </div>
+            <div class="photo-main">
+                [Wstaw tutaj zdjęcie 2]
+            </div>
+        </div>
+
+        <marquee behavior="alternate" direction="right" scrollamount="8">
+            🌟 GRATULACJE! 🌟 JESTEŚ ZWYCIĘZCĄ! 🌟 KEBAB CZEKA! 🌟
+        </marquee>
+
+        <div class="content-box">
+            <h2 style="text-align: center; font-size: 2.5em; margin-bottom: 20px; text-shadow: 3px 3px 0 #000;">
+                ✨ SZCZEGÓŁY REALIZACJI ✨
+            </h2>
+            <div class="details">
+                <p><strong>👤 Uprawniony:</strong> szczęśliwy posiadacz vouchera wraz z osobą towarzyszącą</p>
+                <p><strong>🥙 Liczba kebisków:</strong> dowolna liczba nieprzekraczająca 50 zł</p>
+                <p><strong>📍 Miejsce:</strong> <span style="color: #00ff00;">Arhum Kebab, Poznań</span></p>
+                <p><strong>📅 Termin ważności:</strong> do 31 grudnia 2026 r.</p>
+                <p><strong>🎁 Zakres świadczenia:</strong> kebab w dowolnej konfiguracji - mięso, sos i dodatki według własnego gustu - napój oraz towarzystwo znanej i lubianej pary</p>
+            </div>
+        </div>
+
+        <div class="location">
+            🕌 ARHUM KEBAB - NAJLEPSZY KEBAB W POZNANIU! 🕌
+        </div>
+
+        <div class="ascii-art">
+    🌙                    ⭐
+         ⭐         🌙
+   ⭐        🕌        ⭐
+        /\  /\  /\
+       /  \/  \/  \
+      /    KEBAB   \
+     /_______________\
+        </div>
+
+        <marquee behavior="scroll" direction="left" scrollamount="12">
+            🔥🔥🔥 NIE PRZEGAP OKAZJI! 🔥🔥🔥 KEBAB MARZEŃ CZEKA! 🔥🔥🔥 ZAPRASZAMY! 🔥🔥🔥
+        </marquee>
+    </div>
+
+    <script>
+        // Gwiazdki na niebie
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 2 + 's';
+            starsContainer.appendChild(star);
+        }
+
+        // Fajerwerki
+        function createFirework() {
+            const firework = document.createElement('div');
+            firework.className = 'firework';
+            firework.textContent = '✨';
+            firework.style.left = Math.random() * window.innerWidth + 'px';
+            firework.style.top = Math.random() * window.innerHeight + 'px';
+            firework.style.fontSize = (Math.random() * 30 + 20) + 'px';
+            document.body.appendChild(firework);
+
+            setTimeout(() => {
+                firework.style.transition = 'all 1s ease-out';
+                firework.style.transform = 'scale(3) rotate(360deg)';
+                firework.style.opacity = '0';
+            }, 10);
+
+            setTimeout(() => {
+                firework.remove();
+            }, 1100);
+        }
+
+        setInterval(createFirework, 500);
+
+        // Dodatkowe emoji fajerwerki
+        const fireworkEmojis = ['💥', '🎆', '🎇', '✨', '⭐', '🌟'];
+        function createEmojiFirework() {
+            const emoji = fireworkEmojis[Math.floor(Math.random() * fireworkEmojis.length)];
+            const firework = document.createElement('div');
+            firework.className = 'firework';
+            firework.textContent = emoji;
+            firework.style.left = Math.random() * window.innerWidth + 'px';
+            firework.style.top = Math.random() * window.innerHeight + 'px';
+            firework.style.fontSize = (Math.random() * 40 + 30) + 'px';
+            document.body.appendChild(firework);
+
+            setTimeout(() => {
+                firework.style.transition = 'all 1.5s ease-out';
+                firework.style.transform = 'scale(2) translateY(-200px)';
+                firework.style.opacity = '0';
+            }, 10);
+
+            setTimeout(() => {
+                firework.remove();
+            }, 1600);
+        }
+
+        setInterval(createEmojiFirework, 800);
+    </script>
+</body>
+</html>
